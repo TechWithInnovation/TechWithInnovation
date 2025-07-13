@@ -4,6 +4,7 @@ import Brands from "./components/Brands";
 import Projects from "./components/Projects";
 import WhyUs from "./components/WhyUs";
 import Testimonial from "./components/Testimonial";
+import Team from "./components/Team";
 import GetQuoteSection from "./components/GetQuote";
 import FAQSection from "./components/Faq";
 import Footer from "./components/Footer";
@@ -19,6 +20,7 @@ export default function Home() {
       <Services/>
       <WhyUs/>
       <Testimonial/>
+      <Team/>
       <FAQSection/>
       <GetQuoteSection/>
       <Footer/>

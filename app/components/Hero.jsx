@@ -26,7 +26,7 @@ const Hero = () => {
               asChild
               className="inline-flex border items-center justify-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none ring-offset-background hover:bg-os-background-300/60 hover:text-primary border-transparent text-primary/80 h-11 px-6 group gap-2 bg-os-background-200"
             >
-              <Link href="#">View our projects</Link>
+              <Link href="#projects">View our projects</Link>
             </Button>
             <div className="flex flex-col items-center">
               <Button

@@ -1,8 +1,7 @@
-import { Metadata } from "next";
 import { Geist } from "next/font/google";
 import localFont from "next/font/local"
 import "./globals.css";
-import { ThemeProvider } from "./components/ThemeProvider";
+import ThemeProvider from "./components/ThemeProvider";
 
 const Kaio = localFont({
   src: [{

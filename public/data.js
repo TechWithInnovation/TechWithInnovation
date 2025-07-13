@@ -1,9 +1,9 @@
 import {
-  IconCode, 
-  IconPalette, 
-  IconPhone, 
-  IconSearch, 
-  IconShield, 
+  IconCode,
+  IconPalette,
+  IconPhone,
+  IconSearch,
+  IconShield,
   IconWavesElectricity,
   IconMessages,
   IconUserCheck,
@@ -11,6 +11,16 @@ import {
   IconShoppingCart
 } from "@tabler/icons-react";
 
+export const navItems = [
+  { label: "Services", href: "./#services" },
+  { label: "Projects", href: "./projects" },
+  { label: "About Us", href: "./#why-choose-us" },
+  { label: "Contact", href: "./#contact" },
+]
+export const otherNavItems = [
+  { label: "Team", href: "./#team" },
+  { label: "FAQs", href: "./#faqs" },
+]
 export const brands = [
   { id: 1, name: "TechCorp", logo: "/images/brands.png" },
   { id: 2, name: "InnovateLab", logo: "/images/brands1.png" },
@@ -28,30 +38,74 @@ export const projects = [
     title: "E-commerce Platform",
     image: "/images/project.jpg",
     tech: ["Next.js", "Shopify"],
-    description: "Modern e-commerce solution with advanced features",
+    metadesc: "Scalable, secure e-commerce platform with Shopify integration for seamless shopping.",
+    description:
+      "A robust and scalable e-commerce platform designed to handle high traffic and provide a seamless shopping experience. Features include secure payment gateways, product management, user authentication, and a responsive design for all devices. Built with Next.js for server-side rendering and optimized performance, integrated with Shopify's powerful backend for product and order management.",
   },
   {
     id: 2,
     title: "SaaS Dashboard",
     image: "/images/project1.png",
     tech: ["React", "Node.js"],
-    description: "Comprehensive analytics dashboard for businesses",
+    metadesc: "Real-time SaaS dashboard offering analytics, customizable reports, and user management.",
+    description:
+      "An intuitive and comprehensive analytics dashboard for businesses to visualize key performance indicators. This SaaS solution offers real-time data updates, customizable reports, user role management, and a clean, modern UI. Developed using React for a dynamic frontend and Node.js with Express for a fast and efficient backend API.",
   },
   {
     id: 3,
     title: "Mobile App",
     image: "/images/project2.jpg",
     tech: ["React Native", "Firebase"],
-    description: "Cross-platform mobile application",
+    metadesc: "Cross-platform mobile app connecting users to local services with real-time features.",
+    description:
+      "A cross-platform mobile application for both iOS and Android, designed to connect users with local services. Features include geolocation, in-app messaging, user profiles, and review systems. Built with React Native for a single codebase and Firebase for real-time database, authentication, and cloud functions, ensuring a smooth and reliable user experience.",
   },
   {
     id: 4,
     title: "Corporate Website",
     image: "/images/project3.jpg",
     tech: ["Next.js", "Tailwind"],
-    description: "Professional corporate website with CMS",
+    metadesc: "Modern corporate website with fast performance and SEO-friendly design.",
+    description:
+      "A professional and engaging corporate website designed to showcase company services, portfolio, and team. This site features a modern, minimalist aesthetic, fast loading times, and a user-friendly content management system. Developed with Next.js for optimal SEO and performance, and styled with Tailwind CSS for a highly customizable and responsive design.",
   },
-]
+  {
+    id: 5,
+    title: "Healthcare Portal",
+    image: "/images/project1.png",
+    tech: ["Next.js", "TypeScript", "PostgreSQL"],
+    metadesc: "Secure healthcare portal enabling patient management and appointment scheduling.",
+    description:
+      "A secure and user-friendly healthcare portal for patient management and appointment scheduling. Features include secure data handling, doctor-patient communication, and electronic health records integration. Built with Next.js and TypeScript for robust development, backed by a PostgreSQL database for reliable data storage.",
+  },
+  {
+    id: 6,
+    title: "Fintech Dashboard",
+    image: "/images/project.jpg",
+    tech: ["React", "GraphQL", "Node.js"],
+    metadesc: "Advanced fintech dashboard for real-time financial insights and portfolio management.",
+    description:
+      "An advanced fintech dashboard providing real-time financial data visualization and portfolio management. Includes features like transaction tracking, investment analysis, and secure user authentication. Developed with React for an interactive UI, GraphQL for efficient data fetching, and Node.js for the backend services.",
+  },
+  {
+    id: 7,
+    title: "Educational Platform",
+    image: "/images/project2.jpg",
+    tech: ["Next.js", "Strapi", "MongoDB"],
+    metadesc: "Interactive educational platform with courses, quizzes, and personalized learning.",
+    description:
+      "An interactive online educational platform offering courses, quizzes, and progress tracking. Features include content management, user enrollment, and a personalized learning experience. Built with Next.js for a fast frontend, Strapi as a headless CMS, and MongoDB for flexible data storage.",
+  },
+  {
+    id: 8,
+    title: "Real Estate Marketplace",
+    image: "/images/project3.jpg",
+    tech: ["React", "Firebase", "Mapbox"],
+    metadesc: "Dynamic real estate marketplace with interactive maps and secure communication.",
+    description:
+      "A dynamic real estate marketplace connecting buyers and sellers with property listings. Features include advanced search filters, interactive maps, agent profiles, and secure messaging. Developed with React for a responsive interface, Firebase for backend services, and Mapbox for rich mapping functionalities.",
+  },
+];
 
 export const technologies = ["React", "Node.js", "TypeScript", "CSS", "Next.js"];
 
@@ -190,3 +244,58 @@ export const ourServices = [
     description: "Custom online store development with secure payment and order management",
   },
 ];
+
+export const teamMembers = [
+  {
+    id: 1,
+    name: "Alex Johnson",
+    role: "Founder & CEO",
+    image: "/images/avatar.png",
+    bio: "Visionary leader with 10+ years in tech innovation. Passionate about transforming businesses through cutting-edge digital solutions.",
+    skills: ["Strategic Planning", "Business Development", "Team Leadership"],
+    social: {
+      linkedin: "https://linkedin.com/in/alexjohnson",
+      twitter: "https://twitter.com/alexjohnson",
+      github: "https://github.com/alexjohnson",
+    },
+  },
+  {
+    id: 2,
+    name: "Sarah Chen",
+    role: "Lead Frontend Developer",
+    image: "/images/avatar1.png",
+    bio: "Frontend specialist with expertise in React, Next.js, and modern web technologies. Creates beautiful, performant user experiences.",
+    skills: ["React", "Next.js", "TypeScript", "UI/UX Design"],
+    social: {
+      linkedin: "https://linkedin.com/in/sarahchen",
+      twitter: "https://twitter.com/sarahchen",
+      github: "https://github.com/sarahchen",
+    },
+  },
+  {
+    id: 3,
+    name: "Michael Rodriguez",
+    role: "Senior Backend Developer",
+    image: "/images/avatar2.png",
+    bio: "Backend architecture expert specializing in scalable systems, APIs, and cloud infrastructure. Ensures robust and secure solutions.",
+    skills: ["Node.js", "Python", "AWS", "Database Design"],
+    social: {
+      linkedin: "https://linkedin.com/in/michaelrodriguez",
+      twitter: "https://twitter.com/michaelrodriguez",
+      github: "https://github.com/michaelrodriguez",
+    },
+  },
+  {
+    id: 4,
+    name: "Emily Davis",
+    role: "UI/UX Designer",
+    image: "/images/avatar5.png",
+    bio: "Creative designer focused on user-centered design principles. Transforms complex ideas into intuitive and engaging interfaces.",
+    skills: ["Figma", "Adobe Creative Suite", "User Research", "Prototyping"],
+    social: {
+      linkedin: "https://linkedin.com/in/emilydavis",
+      twitter: "https://twitter.com/emilydavis",
+      dribbble: "https://dribbble.com/emilydavis",
+    },
+  },
+]

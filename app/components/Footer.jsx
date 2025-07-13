@@ -7,6 +7,7 @@ import {
   IconBrandFacebook,
   IconBrandInstagram,
 } from "@tabler/icons-react"
+import { navItems, otherNavItems } from '@/public/data'
 
 const Footer = () => {
   return (
@@ -40,18 +41,22 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-foreground mb-4">Quick Links</h3>
           <nav className="space-y-2">
-            <Link className="block text-sm hover:text-primary transition-colors" href="#services">
-              Services
-            </Link>
-            <Link className="block text-sm hover:text-primary transition-colors" href="#projects">
-              Projects
-            </Link>
-            <Link className="block text-sm hover:text-primary transition-colors" href="#why-choose-us">
-              About Us
-            </Link>
-            <Link className="block text-sm hover:text-primary transition-colors" href="#contact">
-              Contact
-            </Link>
+            {navItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="block text-sm hover:text-primary transition-colors">
+                {item.label}
+              </Link>
+            ))}
+            {otherNavItems.map((item) => (
+              <Link
+                key={item.label}
+                href={item.href}
+                className="block text-sm hover:text-primary transition-colors">
+                {item.label}
+              </Link>
+            ))}
           </nav>
         </div>
 

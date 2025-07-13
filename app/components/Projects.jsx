@@ -6,10 +6,14 @@ import { Badge } from "@/components/ui/badge";
 import { Card, CardContent } from "@/components/ui/card";
 import { IconArrowRight, IconChevronLeft, IconChevronRight } from "@tabler/icons-react";
 import { projects, technologies } from "@/public/data";
+import Link from "next/link";
+import ProjectDetailDrawer from "./ProjectDetailDrawer";
 
 const Projects = () => {
   const [filter, setFilter] = useState(null);
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [selectedProject, setSelectedProject] = useState(null);
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
   const scrollRef = useRef(null);
 
   const filteredProjects = filter
@@ -45,6 +49,16 @@ const Projects = () => {
   const handleDotClick = (index) => {
     scrollToIndex(index);
   };
+
+  const handleViewProject = (project) => {
+    setSelectedProject(project)
+    setIsDrawerOpen(true)
+  }
+
+  const handleCloseDrawer = () => {
+    setIsDrawerOpen(false)
+    setSelectedProject(null)
+  }
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -145,8 +159,11 @@ const Projects = () => {
                         ))}
                       </div>
                       <h3 className="text-xl font-mono mb-2">{project.title}</h3>
-                      <p className="text-muted-foreground mb-4 text-sm">{project.description}</p>
-                      <Button variant="outline" className="group bg-transparent">
+                      <p className="text-muted-foreground mb-4 text-sm">{project.metadesc}</p>
+                      <Button
+                        variant="outline"
+                        className="group bg-transparent"
+                        onClick={() => handleViewProject(project)}>
                         View Project
                         <IconArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                       </Button>
@@ -156,7 +173,6 @@ const Projects = () => {
               ))}
             </div>
           </div>
-
           <div className="flex justify-center items-center gap-4 mt-6">
             <Button
               variant="outline"
@@ -180,7 +196,6 @@ const Projects = () => {
                 />
               ))}
             </div>
-
             <Button
               variant="outline"
               size="icon"
@@ -190,8 +205,26 @@ const Projects = () => {
               disabled={currentIndex === filteredProjects.length - 1}
             >
               <IconChevronRight className="h-4 w-4" />
-            </Button>
+            </Button></div>
+          <div className="flex justify-center items-center gap-4 mt-6">
+            <motion.div
+              className="text-center mt-12"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <Button size="lg" asChild className="bg-sky-500 hover:bg-sky-500/90"
+                onClick={() => handleViewProject(project)}>
+                <Link href="/projects">
+                  View All Projects
+                  <IconArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </motion.div>
           </div>
+          <ProjectDetailDrawer project={selectedProject} isOpen={isDrawerOpen} onClose={handleCloseDrawer} />
+
         </div>
       </div>
     </section>

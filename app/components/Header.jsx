@@ -5,16 +5,10 @@ import { IconArrowRight, IconMenu } from "@tabler/icons-react"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import ModeToggle from "./ModeToggle";
+import { navItems, otherNavItems } from "@/public/data";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
-
-  const navItems = [
-    { label: "About Us", href: "#about" },
-    { label: "Projects", href: "#projects" },
-    { label: "FAQ", href: "#faq" },
-    { label: "Contact", href: "#contact" },
-  ]
 
   return (
     <motion.header
@@ -25,11 +19,11 @@ function Header() {
     >
       <div className="container header px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <motion.div
+          <motion.a href="/#"
             className="text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent font-mono"
           >
             tech<span className="text-sky-500">with</span>innovation
-          </motion.div>
+          </motion.a>
 
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -59,6 +53,16 @@ function Header() {
                 </SheetTitle>
                 <nav className="flex flex-col space-y-6 mt-8">
                   {navItems.map((item) => (
+                    <a
+                      key={item.label}
+                      href={item.href}
+                      className="text-lg font-medium transition-colors hover:text-primary"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.label}
+                    </a>
+                  ))}
+                  {otherNavItems.map((item) => (
                     <a
                       key={item.label}
                       href={item.href}
