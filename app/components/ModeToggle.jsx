@@ -13,7 +13,7 @@ const ModeToggle = () => {
     setMounted(true);
   }, []);
 
-  if (!mounted) return null; // Avoid SSR mismatch
+  if (!mounted) return null; 
 
   const toggleTheme = () => {
     setTheme(theme === "dark" ? "light" : "dark");

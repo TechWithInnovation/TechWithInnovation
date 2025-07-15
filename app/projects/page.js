@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { IconArrowRight } from '@tabler/icons-react';
+import ChatFab from '@/components/ui/chat-fab';
 
 const fadeInUp = {
   initial: { opacity: 0, y: 60 },
@@ -53,7 +54,7 @@ const ProjectPage = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h1 className="text-3xl md:text-5xl font-bold mb-4">All Our Projects</h1>
+            <h1 className="text-3xl md:text-5xl font-mono mb-4">All Our Projects</h1>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
               Explore our complete portfolio of innovative digital solutions.
             </p>
@@ -105,7 +106,7 @@ const ProjectPage = () => {
                         </Badge>
                       ))}
                     </div>
-                    <h3 className="text-xl font-bold mb-2">{project.title}</h3>
+                    <h3 className="text-xl font-mono mb-2">{project.title}</h3>
                     <p className="text-muted-foreground mb-4 text-sm">{project.description.substring(0, 100)}...</p>
                     <Button
                       variant="outline"
@@ -123,6 +124,7 @@ const ProjectPage = () => {
         </div>
         <ProjectDetailDrawer project={selectedProject} isOpen={isDrawerOpen} onClose={handleCloseDrawer} />
       </main>
+      <ChatFab/>
       <Footer />
     </div>
   )

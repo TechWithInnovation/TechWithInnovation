@@ -73,7 +73,7 @@ const Brands = () => {
                   <img
                     src={brand.logo || "/placeholder.svg"}
                     alt={`${brand.name} logo`}
-                    className="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300 opacity-60 hover:opacity-100"
+                    className="max-h-12 max-w-full object-contain grayscale hover:grayscale-0 transition-all duration-300"
                     draggable={false}
                     loading="lazy"
                   />

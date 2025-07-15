@@ -15,10 +15,9 @@ export const navItems = [
   { label: "Services", href: "./#services" },
   { label: "Projects", href: "./projects" },
   { label: "About Us", href: "./#why-choose-us" },
-  { label: "Contact", href: "./#contact" },
+  { label: "Team", href: "./#team" },
 ]
 export const otherNavItems = [
-  { label: "Team", href: "./#team" },
   { label: "FAQs", href: "./#faqs" },
 ]
 export const brands = [

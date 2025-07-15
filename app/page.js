@@ -9,6 +9,7 @@ import GetQuoteSection from "./components/GetQuote";
 import FAQSection from "./components/Faq";
 import Footer from "./components/Footer";
 import Services from "./components/Services";
+import ChatFab from "@/components/ui/chat-fab";
 
 export default function Home() {
   return (
@@ -23,7 +24,9 @@ export default function Home() {
       <Team/>
       <FAQSection/>
       <GetQuoteSection/>
+      <ChatFab/>
       <Footer/>
+
     </>
   );
 }

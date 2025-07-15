@@ -78,7 +78,7 @@ const Footer = () => {
             <p>
               Email:{" "}
               <Link href="mailto:info@designflow.com" className="hover:text-primary transition-colors">
-                info@designflow.com
+                info@techwithinnovaton.com
               </Link>
             </p>
             <p>
