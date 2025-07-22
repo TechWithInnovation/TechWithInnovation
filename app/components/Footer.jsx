@@ -8,15 +8,15 @@ import {
   IconBrandInstagram,
 } from "@tabler/icons-react"
 import { navItems, otherNavItems } from '@/public/data'
+import Logo from '@/components/logo'
 
 const Footer = () => {
   return (
     <footer className="bg-background text-muted-foreground py-12 md:py-16">
       <div className="container mx-auto px-4 md:px-6 grid grid-cols-1 md:grid-cols-4 gap-8">
         <div className="space-y-4">
-          <Link className="font-mono text-foreground" href="/">
-            Tech<span className="text-sky-500">with</span>Innovation
-          </Link>
+                      <Logo/>
+
           <p className="text-sm">Crafting stunning digital experiences that drive results.</p>
           <div className="flex space-x-4">
             <Link href="#" className="hover:text-primary transition-colors">
@@ -95,7 +95,7 @@ const Footer = () => {
         <p>
           &copy; {new Date().getFullYear()}{" "}
           <span className="font-mono">
-            Tech<span className="text-sky-500">with</span>Innovation
+            tech<span className="text-sky-500">with</span>Innovation
           </span>
           . All rights reserved.
         </p>

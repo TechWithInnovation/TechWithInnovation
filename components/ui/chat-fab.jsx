@@ -50,7 +50,7 @@ const ChatFab = () => {
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedTemplate}`
 
     window.open(whatsappUrl, "_blank")
-//    setFormData({ name: "", email: "", budget: "", description: "" })
+    setFormData({ name: "", email: "", budget: "", description: "" })
     setIsOpen(false)
   }
 

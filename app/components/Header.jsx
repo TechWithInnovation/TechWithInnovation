@@ -6,6 +6,8 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import ModeToggle from "./ModeToggle";
 import { navItems, otherNavItems } from "@/public/data";
+import Link from "next/link";
+import Logo from "@/components/logo";
 
 function Header() {
   const [isOpen, setIsOpen] = useState(false)
@@ -19,11 +21,7 @@ function Header() {
     >
       <div className="container header px-4 sm:px-6 lg:px-8">
         <div className="flex h-16 items-center justify-between">
-          <motion.a href="/#"
-            className="text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent font-mono"
-          >
-            tech<span className="text-sky-500">with</span>innovation
-          </motion.a>
+          <Logo />
 
           <nav className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
@@ -48,8 +46,8 @@ function Header() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-full sm:w-80 px-4 py-4 sm:px-6 lg:px-8">
-                <SheetTitle className="font-mono text-2xl bg-gradient-to-r from-primary to-primary/60 bg-clip-text text-transparent ">
-                  tech<span className="text-sky-500">with</span>innovation
+                <SheetTitle>
+                  <Logo/>
                 </SheetTitle>
                 <nav className="flex flex-col space-y-6 mt-8">
                   {navItems.map((item) => (
@@ -72,8 +70,8 @@ function Header() {
                       {item.label}
                     </a>
                   ))}
-                  <Button className="w-full mt-8 inline-flex items-center justify-center bg-sky-500 text-primary-foreground hover:bg-sky-600/90 hover:ring-4 hover:ring-primary/10 active:scale-[0.98] ">
-                    Get in touch<IconArrowRight />
+                  <Button asChild className="w-full mt-8 inline-flex items-center justify-center bg-sky-500 text-primary-foreground hover:bg-sky-600/90 hover:ring-4 hover:ring-primary/10 active:scale-[0.98] ">
+                    <Link href="./#contact">Get a Quote<IconArrowRight /></Link>
                   </Button>
                 </nav>
               </SheetContent>
@@ -83,8 +81,8 @@ function Header() {
           <div className="hidden md:flex flex gap-4">
             <ModeToggle />
 
-            <Button className="inline-flex items-center justify-center bg-sky-500 text-primary-foreground hover:bg-sky-600/90 hover:ring-4 hover:ring-primary/10 active:scale-[0.98]">
-              Get in touch <IconArrowRight />
+            <Button asChild className="inline-flex items-center justify-center bg-sky-500 text-primary-foreground hover:bg-sky-600/90 hover:ring-4 hover:ring-primary/10 active:scale-[0.98]">
+              <Link href="./#contact">Get a Quote <IconArrowRight /></Link>
             </Button>
           </div>
         </div>

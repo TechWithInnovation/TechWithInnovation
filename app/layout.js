@@ -1,13 +1,14 @@
 import { Geist } from "next/font/google";
 import localFont from "next/font/local"
 import "./globals.css";
+import { Toaster } from "@/components/ui/sonner"
 import ThemeProvider from "./components/ThemeProvider";
 
 const Kaio = localFont({
   src: [{
     path: "../public/font/Kaio-Black.ttf"
   }],
-  
+
   variable: "--font-kaio",
 });
 
@@ -35,6 +36,8 @@ export default function RootLayout({ children }) {
             disableTransitionOnChange
           >
             {children}
+
+            <Toaster position="top-center" richColors />
           </ThemeProvider>
         </body>
       </html>

@@ -1,5 +1,6 @@
 "use client"
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useForm, ValidationError } from '@formspree/react';
 import { motion } from "framer-motion";
 import { IconArrowRight } from "@tabler/icons-react"
 import { Button } from "@/components/ui/button"
@@ -13,8 +14,13 @@ import {
     SelectContent,
     SelectItem
 } from "@/components/ui/select";
+import { toast } from "sonner"
+
 
 const GetQuoteSection = () => {
+
+    const [state, handleSubmit] = useForm("xblklgzk");
+
     const [formData, setFormData] = useState({
         name: "",
         email: "",
@@ -22,10 +28,17 @@ const GetQuoteSection = () => {
         message: "",
     })
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        console.log("Form submitted:", formData)
-    }
+useEffect(() => {
+  if (state.succeeded) {
+    toast.success("Your quote request has been sent successfully!");
+    setFormData({
+      name: "",
+      email: "",
+      budget: "",
+      message: "",
+    });
+  }
+}, [state.succeeded]);
 
     return (
         <section id="contact" className="py-20">
@@ -54,10 +67,16 @@ const GetQuoteSection = () => {
                                         </label>
                                         <Input
                                             id="name"
+                                            name="name"
                                             value={formData.name}
                                             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            required
                                             className="transition-all duration-200 focus:ring-2 focus:ring-primary"
+                                        />
+
+                                        <ValidationError
+                                            prefix="Name"
+                                            field="name"
+                                            errors={state.errors}
                                         />
                                     </div>
                                     <div>
@@ -67,10 +86,15 @@ const GetQuoteSection = () => {
                                         <Input
                                             id="email"
                                             type="email"
+                                            name="email"
                                             value={formData.email}
                                             onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                                            required
                                             className="transition-all duration-200 focus:ring-2 focus:ring-primary"
+                                        />
+                                        <ValidationError
+                                            prefix="Email"
+                                            field="email"
+                                            errors={state.errors}
                                         />
                                     </div>
                                 </div>
@@ -98,6 +122,7 @@ const GetQuoteSection = () => {
                                     </label>
                                     <Textarea
                                         id="message"
+                                        name="message"
                                         rows={5}
                                         value={formData.message}
                                         onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -105,10 +130,16 @@ const GetQuoteSection = () => {
                                         required
                                         className="transition-all duration-200 focus:ring-2 focus:ring-primary"
                                     />
+
+                                    <ValidationError
+                                        prefix="Message"
+                                        field="message"
+                                        errors={state.errors}
+                                    />
                                 </div>
 
                                 <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                                    <Button type="submit" size="lg" className="w-full group bg-sky-500 hover:bg-sky-600/90">
+                                    <Button type="submit" size="lg" disabled={state.submitting} className="w-full group bg-sky-500 hover:bg-sky-600/90">
                                         Send Quote Request
                                         <motion.div className="ml-2" whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
                                             <IconArrowRight className="h-5 w-5" />
