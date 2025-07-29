@@ -1,46 +1,32 @@
-import { Geist } from "next/font/google";
+// app/layout.tsx (must remain a server component)
+import { Geist } from "next/font/google"
 import localFont from "next/font/local"
-import "./globals.css";
-import { Toaster } from "@/components/ui/sonner"
-import ThemeProvider from "./components/ThemeProvider";
+import "./globals.css"
+import ClientLayout from "./components/ClientLayout"
 
 const Kaio = localFont({
-  src: [{
-    path: "../public/font/Kaio-Black.ttf"
-  }],
-
+  src: [{ path: "../public/font/Kaio-Black.ttf" }],
   variable: "--font-kaio",
-});
+})
 
 const geist = Geist({
   variable: "--font-geist-sans",
   weight: "400",
   subsets: ["latin"],
-});
+})
 
 export const metadata = {
   title: "TechWithInnovation | Web Design Agency",
-  description: "We craft exceptional digital experiences that drive growth, engage users, and transform businesses through cutting-edge technology and innovative design.",
-};
+  description:
+    "We craft exceptional digital experiences that drive growth, engage users, and transform businesses through cutting-edge technology and innovative design.",
+}
 
 export default function RootLayout({ children }) {
   return (
-    <>
-      <html lang="en" suppressHydrationWarning>
-        <head />
-        <body>
-          <ThemeProvider
-            attribute="class"
-            defaultTheme="system"
-            enableSystem
-            disableTransitionOnChange
-          >
-            {children}
-
-            <Toaster position="top-center" richColors />
-          </ThemeProvider>
-        </body>
-      </html>
-    </>
+    <html lang="en" suppressHydrationWarning className={`${geist.variable} ${Kaio.variable}`}>
+      <body>
+        <ClientLayout>{children}</ClientLayout>
+      </body>
+    </html>
   )
 }
