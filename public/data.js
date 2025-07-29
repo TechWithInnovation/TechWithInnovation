@@ -144,7 +144,7 @@ export const whyChooseUs = [
 export const testimonials = [
   {
     id: 1,
-    name: "Sarah Johnson",
+    name: "Adeola Adebayo",
     company: "TechCorp Inc.",
     rating: 5,
     quote:
@@ -153,7 +153,7 @@ export const testimonials = [
   },
   {
     id: 2,
-    name: "Michael Chen",
+    name: "Bola Oladipo",
     company: "StartupX",
     rating: 5,
     quote:
@@ -162,7 +162,7 @@ export const testimonials = [
   },
   {
     id: 3,
-    name: "Emily Rodriguez",
+    name: "Funmi Akinwale",
     company: "DigitalFlow",
     rating: 5,
     quote:
@@ -171,7 +171,7 @@ export const testimonials = [
   },
   {
     id: 4,
-    name: "David Thompson",
+    name: "Tunde Balogun",
     company: "CloudSync",
     rating: 5,
     quote:
@@ -180,7 +180,7 @@ export const testimonials = [
   },
   {
     id: 5,
-    name: "Lisa Wang",
+    name: "Kemi Afolabi",
     company: "DataVision",
     rating: 5,
     quote:
@@ -188,6 +188,7 @@ export const testimonials = [
     avatar: "/images/avatar1.png",
   },
 ]
+
 export const faqs = [
   {
     question: "What technologies do you specialize in?",

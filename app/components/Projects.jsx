@@ -160,13 +160,13 @@ const Projects = () => {
                       </div>
                       <h3 className="text-xl font-mono mb-2">{project.title}</h3>
                       <p className="text-muted-foreground mb-4 text-sm">{project.metadesc}</p>
-                      <Button
+                      {/* <Button
                         variant="outline"
                         className="group bg-transparent"
                         onClick={() => handleViewProject(project)}>
                         View Project
                         <IconArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-                      </Button>
+                      </Button> */}
                     </CardContent>
                   </Card>
                 </motion.div>
