@@ -16,10 +16,10 @@ export const navItems = [
   { label: "Projects", href: "./projects" },
   { label: "About Us", href: "./#why-choose-us" },
   { label: "Team", href: "./#team" },
-]
+];
 export const otherNavItems = [
   { label: "FAQs", href: "./#faqs" },
-]
+];
 export const brands = [
   { id: 1, name: "TechCorp", logo: "/images/brands.png" },
   { id: 2, name: "InnovateLab", logo: "/images/brands1.png" },
@@ -139,7 +139,7 @@ export const whyChooseUs = [
     title: "Clean Code",
     description: "Maintainable, scalable, and well-documented code",
   },
-]
+];
 
 export const testimonials = [
   {
@@ -187,7 +187,7 @@ export const testimonials = [
       "They didn't just build our app, they understood our vision and brought it to life with incredible precision.",
     avatar: "/images/avatar1.png",
   },
-]
+];
 
 export const faqs = [
   {
@@ -215,7 +215,7 @@ export const faqs = [
     answer:
       "Our pricing is project-based and depends on scope and complexity. We provide detailed quotes after understanding your specific requirements.",
   },
-]
+];
 
 export const ourServices = [
   {
@@ -248,54 +248,54 @@ export const ourServices = [
 export const teamMembers = [
   {
     id: 1,
-    name: "Alex Johnson",
+    name: "Chinedu Okafor",
     role: "Founder & CEO",
     image: "/images/avatar.png",
     bio: "Visionary leader with 10+ years in tech innovation. Passionate about transforming businesses through cutting-edge digital solutions.",
     skills: ["Strategic Planning", "Business Development", "Team Leadership"],
     social: {
-      linkedin: "https://linkedin.com/in/alexjohnson",
-      twitter: "https://twitter.com/alexjohnson",
-      github: "https://github.com/alexjohnson",
+      linkedin: "https://linkedin.com/in/chineduokafor",
+      twitter: "https://twitter.com/chineduokafor",
+      github: "https://github.com/chineduokafor",
     },
   },
   {
     id: 2,
-    name: "Sarah Chen",
+    name: "Ngozi Eze",
     role: "Lead Frontend Developer",
     image: "/images/avatar1.png",
     bio: "Frontend specialist with expertise in React, Next.js, and modern web technologies. Creates beautiful, performant user experiences.",
     skills: ["React", "Next.js", "TypeScript", "UI/UX Design"],
     social: {
-      linkedin: "https://linkedin.com/in/sarahchen",
-      twitter: "https://twitter.com/sarahchen",
-      github: "https://github.com/sarahchen",
+      linkedin: "https://linkedin.com/in/ngozieze",
+      twitter: "https://twitter.com/ngozieze",
+      github: "https://github.com/ngozieze",
     },
   },
   {
     id: 3,
-    name: "Michael Rodriguez",
+    name: "Emeka Nwosu",
     role: "Senior Backend Developer",
     image: "/images/avatar2.png",
     bio: "Backend architecture expert specializing in scalable systems, APIs, and cloud infrastructure. Ensures robust and secure solutions.",
     skills: ["Node.js", "Python", "AWS", "Database Design"],
     social: {
-      linkedin: "https://linkedin.com/in/michaelrodriguez",
-      twitter: "https://twitter.com/michaelrodriguez",
-      github: "https://github.com/michaelrodriguez",
+      linkedin: "https://linkedin.com/in/emekanwosu",
+      twitter: "https://twitter.com/emekanwosu",
+      github: "https://github.com/emekanwosu",
     },
   },
   {
     id: 4,
-    name: "Emily Davis",
+    name: "Aisha Bello",
     role: "UI/UX Designer",
     image: "/images/avatar5.png",
     bio: "Creative designer focused on user-centered design principles. Transforms complex ideas into intuitive and engaging interfaces.",
     skills: ["Figma", "Adobe Creative Suite", "User Research", "Prototyping"],
     social: {
-      linkedin: "https://linkedin.com/in/emilydavis",
-      twitter: "https://twitter.com/emilydavis",
-      dribbble: "https://dribbble.com/emilydavis",
+      linkedin: "https://linkedin.com/in/aishabello",
+      twitter: "https://twitter.com/aishabello",
+      dribbble: "https://dribbble.com/aishabello",
     },
   },
-]
+];
