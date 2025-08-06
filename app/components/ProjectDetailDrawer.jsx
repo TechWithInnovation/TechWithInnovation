@@ -1,24 +1,26 @@
-"use client"
-import React from 'react'
+"use client";
+import React from "react";
 import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet"
-import { Badge } from "@/components/ui/badge"
-import { Button } from "@/components/ui/button"
-import { X } from "lucide-react"
+    Sheet,
+    SheetContent,
+    SheetDescription,
+    SheetHeader,
+    SheetTitle,
+} from "@/components/ui/sheet";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { X } from "lucide-react";
 
 const ProjectDetailDrawer = ({ project, isOpen, onClose }) => {
-    if (!project) return null
+    if (!project) return null;
 
     return (
         <Sheet open={isOpen} onOpenChange={onClose}>
             <SheetContent className="h-[90vh] flex flex-col" side="bottom">
                 <SheetHeader className="flex flex-row items-center justify-between p-4 border-b">
-                    <SheetTitle className="font-mono font-normal">{project.title}</SheetTitle>
+                    <SheetTitle className="font-mono font-normal">
+                        {project.title}
+                    </SheetTitle>
                 </SheetHeader>
                 <div className="flex-1 overflow-y-auto p-4 md:p-8">
                     <img
@@ -35,14 +37,17 @@ const ProjectDetailDrawer = ({ project, isOpen, onClose }) => {
                         <h3 className="text-sm font-mono mb-3">Technologies Used:</h3>
                         <div className="flex flex-wrap gap-2">
                             {project.tech.map((tech) => (
-                                <Badge key={tech} variant="secondary" className="px-3 py-1 text-sm">
+                                <Badge
+                                    key={tech}
+                                    variant="secondary"
+                                    className="px-3 py-1 text-sm"
+                                >
                                     {tech}
                                 </Badge>
                             ))}
-
                         </div>
                     </div>
-                        <h3 className="text-sm font-mono mb-3">Project Description:</h3>
+                    <h3 className="text-sm font-mono mb-3">Project Description:</h3>
                     <SheetDescription className="text-md text-muted-foreground mb-6 leading-relaxed">
                         {project.description}
                     </SheetDescription>
@@ -52,7 +57,7 @@ const ProjectDetailDrawer = ({ project, isOpen, onClose }) => {
                 </div>
             </SheetContent>
         </Sheet>
-    )
-}
+    );
+};
 
-export default ProjectDetailDrawer
+export default ProjectDetailDrawer;

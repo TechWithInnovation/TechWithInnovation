@@ -1,9 +1,9 @@
-"use client"
-import React, { useEffect, useState } from "react";
-import { useForm, ValidationError } from '@formspree/react';
+"use client";
+import React, { useState, useEffect } from "react";
+import { useForm, ValidationError } from "@formspree/react";
 import { motion } from "framer-motion";
-import { IconArrowRight } from "@tabler/icons-react"
-import { Button } from "@/components/ui/button"
+import { IconArrowRight } from "@tabler/icons-react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -12,33 +12,80 @@ import {
     SelectValue,
     SelectTrigger,
     SelectContent,
-    SelectItem
+    SelectItem,
 } from "@/components/ui/select";
-import { toast } from "sonner"
+import { toast } from "sonner";
 
+import { useExchangeRates } from "@/hooks/useExchangeRates";
+import { useDetectedCurrency } from "@/hooks/useDetectedCurrency";
+import { currencyOptions } from "@/hooks/currencyMap";
+
+const USD_BUDGETS = [
+    { min: 5000, max: 10000 },
+    { min: 10000, max: 25000 },
+    { min: 25000, max: 50000 },
+    { min: 50000, max: null },
+];
 
 const GetQuoteSection = () => {
+    const [currency, setCurrency] = useState("USD"); // default fallback
 
-    const [state, handleSubmit] = useForm("xblklgzk");
+    const detectedCurrency = useDetectedCurrency(); // call the hook separately
+
+    useEffect(() => {
+      if (detectedCurrency && detectedCurrency !== currency) {
+        setCurrency(detectedCurrency);
+      }
+    }, [detectedCurrency]);
+
+    const { rates: exchangeRates, loading, error } = useExchangeRates("USD");
 
     const [formData, setFormData] = useState({
         name: "",
         email: "",
         budget: "",
         message: "",
-    })
-
-useEffect(() => {
-  if (state.succeeded) {
-    toast.success("Your quote request has been sent successfully!");
-    setFormData({
-      name: "",
-      email: "",
-      budget: "",
-      message: "",
     });
-  }
-}, [state.succeeded]);
+
+    const [state, handleSubmit] = useForm("xblklgzk");
+
+    React.useEffect(() => {
+        if (state.succeeded) {
+            toast.success("Your quote request has been sent successfully!");
+            setFormData({
+                name: "",
+                email: "",
+                budget: "",
+                message: "",
+            });
+        }
+    }, [state.succeeded]);
+
+    const roundToNearest = (num) => {
+        if (num < 100) return Math.round(num / 10) * 10;
+        if (num < 1000) return Math.round(num / 100) * 100;
+        return Math.round(num / 1000) * 1000;
+    };
+
+    const convertedBudgets =
+        !loading && exchangeRates && exchangeRates[currency]
+            ? USD_BUDGETS.map(({ min, max }) => {
+                const rate = exchangeRates[currency];
+                const formatAmount = (n) =>
+                    new Intl.NumberFormat("en", {
+                        style: "currency",
+                        currency,
+                        maximumFractionDigits: 0,
+                    }).format(roundToNearest(n * rate));
+
+                return {
+                    label: max
+                        ? `${formatAmount(min)} - ${formatAmount(max)}`
+                        : `${formatAmount(min)}+`,
+                    value: `${min}-${max ?? "plus"}`,
+                };
+            })
+            : [];
 
     return (
         <section id="contact" className="py-20">
@@ -53,34 +100,43 @@ useEffect(() => {
                     <div className="text-center mb-12">
                         <h2 className="text-3xl md:text-5xl font-mono mb-4">Get a Quote</h2>
                         <p className="text-xl text-muted-foreground">
-                            Ready to start your project? Let's discuss your requirements and create something amazing together.
+                            Ready to start your project? Let's discuss your requirements and
+                            create something amazing together.
                         </p>
                     </div>
 
                     <Card>
                         <CardContent className="p-8">
                             <form onSubmit={handleSubmit} className="space-y-6">
-                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                    <div>
-                                        <label htmlFor="name" className="block text-sm font-medium mb-2">
+                                <div className="flex flex-cols-1 md:flex-cols-2 gap-6">
+                                    <div className=" w-full">
+                                        <label
+                                            htmlFor="name"
+                                            className="block text-sm font-medium mb-2"
+                                        >
                                             Name *
                                         </label>
                                         <Input
                                             id="name"
                                             name="name"
                                             value={formData.name}
-                                            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                                            className="transition-all duration-200 focus:ring-2 focus:ring-primary"
+                                            onChange={(e) =>
+                                                setFormData({ ...formData, name: e.target.value })
+                                            }
+                                            className="transition-all w-full duration-200 focus:ring-2 focus:ring-primary"
                                         />
-
                                         <ValidationError
                                             prefix="Name"
                                             field="name"
                                             errors={state.errors}
                                         />
                                     </div>
-                                    <div>
-                                        <label htmlFor="email" className="block text-sm font-medium mb-2">
+
+                                    <div className=" w-full">
+                                        <label
+                                            htmlFor="email"
+                                            className="block text-sm font-medium mb-2"
+                                        >
                                             Email *
                                         </label>
                                         <Input
@@ -88,7 +144,9 @@ useEffect(() => {
                                             type="email"
                                             name="email"
                                             value={formData.email}
-                                            onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                                            onChange={(e) =>
+                                                setFormData({ ...formData, email: e.target.value })
+                                            }
                                             className="transition-all duration-200 focus:ring-2 focus:ring-primary"
                                         />
                                         <ValidationError
@@ -100,24 +158,84 @@ useEffect(() => {
                                 </div>
 
                                 <div>
-                                    <label htmlFor="budget" className="block text-sm font-medium mb-2">
-                                        Budget (Optional)
+                                    <label
+                                        htmlFor="budget"
+                                        className="block text-sm font-medium mb-2"
+                                    >
+                                        Budget
                                     </label>
-                                    <Select onValueChange={(value) => setFormData({ ...formData, budget: value })}>
-                                        <SelectTrigger>
-                                            <SelectValue placeholder="Select your budget range" />
-                                        </SelectTrigger>
-                                        <SelectContent>
-                                            <SelectItem value="5k-10k">$5,000 - $10,000</SelectItem>
-                                            <SelectItem value="10k-25k">$10,000 - $25,000</SelectItem>
-                                            <SelectItem value="25k-50k">$25,000 - $50,000</SelectItem>
-                                            <SelectItem value="50k+">$50,000+</SelectItem>
-                                        </SelectContent>
-                                    </Select>
+                                    <div className="flex flex-cols-1 md:flex-cols-2 gap-6">
+                                        <div>
+                                            <Select
+                                                onValueChange={(value) => setCurrency(value)}
+                                                value={currency}
+                                            >
+                                                <SelectTrigger>
+                                                    <SelectValue placeholder="Select currency" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {Object.entries(currencyOptions).map(
+                                                        ([countryCode, currencyCode]) => {
+                                                            return (
+                                                                <SelectItem
+                                                                    value={currencyCode}
+                                                                    key={currencyCode}
+                                                                >
+                                                                    {currencyCode}
+                                                                </SelectItem>
+                                                            );
+                                                        }
+                                                    )}
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+
+                                        <div className="w-full">
+                                            <Select
+                                                onValueChange={(value) =>
+                                                    setFormData({ ...formData, budget: value })
+                                                }
+                                                className="w-full"
+                                                disabled={loading || error}
+                                            >
+                                                <SelectTrigger className="w-full">
+                                                    <SelectValue placeholder="Select your budget range" />
+                                                </SelectTrigger>
+                                                <SelectContent>
+                                                    {convertedBudgets.length
+                                                        ? convertedBudgets.map((range) => (
+                                                            <SelectItem
+                                                                key={range.value}
+                                                                value={range.value}
+                                                            >
+                                                                {range.label}
+                                                            </SelectItem>
+                                                        ))
+                                                        : !loading &&
+                                                        !error && (
+                                                            <SelectItem disabled>
+                                                                No budget options available
+                                                            </SelectItem>
+                                                        )}
+                                                    {loading && (
+                                                        <SelectItem disabled>Loading budgets...</SelectItem>
+                                                    )}
+                                                    {error && (
+                                                        <SelectItem disabled>
+                                                            Error loading exchange rates
+                                                        </SelectItem>
+                                                    )}
+                                                </SelectContent>
+                                            </Select>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div>
-                                    <label htmlFor="message" className="block text-sm font-medium mb-2">
+                                    <label
+                                        htmlFor="message"
+                                        className="block text-sm font-medium mb-2"
+                                    >
                                         Project Description *
                                     </label>
                                     <Textarea
@@ -125,12 +243,13 @@ useEffect(() => {
                                         name="message"
                                         rows={5}
                                         value={formData.message}
-                                        onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                                        onChange={(e) =>
+                                            setFormData({ ...formData, message: e.target.value })
+                                        }
                                         placeholder="Tell us about your project, goals, and any specific requirements..."
                                         required
                                         className="transition-all duration-200 focus:ring-2 focus:ring-primary"
                                     />
-
                                     <ValidationError
                                         prefix="Message"
                                         field="message"
@@ -138,10 +257,22 @@ useEffect(() => {
                                     />
                                 </div>
 
-                                <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
-                                    <Button type="submit" size="lg" disabled={state.submitting} className="w-full group bg-sky-500 hover:bg-sky-600/90">
+                                <motion.div
+                                    whileHover={{ scale: 1.02 }}
+                                    whileTap={{ scale: 0.98 }}
+                                >
+                                    <Button
+                                        type="submit"
+                                        size="lg"
+                                        disabled={state.submitting}
+                                        className="w-full group bg-sky-500 hover:bg-sky-600/90"
+                                    >
                                         Send Quote Request
-                                        <motion.div className="ml-2" whileHover={{ x: 5 }} transition={{ duration: 0.2 }}>
+                                        <motion.div
+                                            className="ml-2"
+                                            whileHover={{ x: 5 }}
+                                            transition={{ duration: 0.2 }}
+                                        >
                                             <IconArrowRight className="h-5 w-5" />
                                         </motion.div>
                                     </Button>
@@ -152,6 +283,7 @@ useEffect(() => {
                 </motion.div>
             </div>
         </section>
-    )
-}
-export default GetQuoteSection
+    );
+};
+
+export default GetQuoteSection;

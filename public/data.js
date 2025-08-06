@@ -248,9 +248,9 @@ export const ourServices = [
 export const teamMembers = [
   {
     id: 1,
-    name: "Chinedu Okafor",
+    name: "AbdulFath Shokunbi",
     role: "Founder & CEO",
-    image: "/images/avatar.png",
+    image: "/images/ceo.jpg",
     bio: "Visionary leader with 10+ years in tech innovation. Passionate about transforming businesses through cutting-edge digital solutions.",
     skills: ["Strategic Planning", "Business Development", "Team Leadership"],
     social: {
@@ -261,7 +261,7 @@ export const teamMembers = [
   },
   {
     id: 2,
-    name: "Ngozi Eze",
+    name: "Ayatullah Khalid",
     role: "Lead Frontend Developer",
     image: "/images/avatar1.png",
     bio: "Frontend specialist with expertise in React, Next.js, and modern web technologies. Creates beautiful, performant user experiences.",
