@@ -363,7 +363,7 @@ export const teamMembers = [
   }
 ];
 
-const NGN_BUDGETS = [
+export const NGN_BUDGETS = [
   { min: 500000, max: 1000000 },
   { min: 1000001, max: 5000000 },
   { min: 5000001, max: 10000001 },
