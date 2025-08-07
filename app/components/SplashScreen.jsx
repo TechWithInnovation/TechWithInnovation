@@ -1,5 +1,5 @@
 "use client"
-
+ 
 import Logo from "@/components/logo"
 import { motion } from "framer-motion"
 import { useEffect, useState } from "react"

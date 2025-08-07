@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import { testimonials } from "@/public/data";
 import { Card, CardContent } from "@/components/ui/card";
 
-const scrollSpeed = 1;
+const scrollSpeed = 1; 
 
 const Testimonial = () => {
   const scrollRef = useRef(null);

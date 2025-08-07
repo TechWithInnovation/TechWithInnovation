@@ -1,4 +1,3 @@
-// app/layout.tsx (must remain a server component)
 import { Geist } from "next/font/google"
 import localFont from "next/font/local"
 import "./globals.css"

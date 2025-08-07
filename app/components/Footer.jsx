@@ -7,7 +7,7 @@ import {
   IconBrandFacebook,
   IconBrandInstagram,
 } from "@tabler/icons-react"
-import { navItems, otherNavItems } from '@/public/data'
+import { navItems, otherNavItems, ourServices } from '@/public/data'
 import Logo from '@/components/logo'
 
 const Footer = () => {
@@ -23,15 +23,15 @@ const Footer = () => {
               <IconBrandFacebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
             </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
+            <Link href="https://www.instagram.com/tech_withinnovation" className="hover:text-primary transition-colors">
               <IconBrandInstagram className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
+            <Link href="https://twitter.com/techwithinnovation" className="hover:text-primary transition-colors">
               <IconBrandTwitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
-            <Link href="#" className="hover:text-primary transition-colors">
+            <Link href="https://www.linkedin.com/company/techwithinnovation" className="hover:text-primary transition-colors">
               <IconBrandLinkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
@@ -63,11 +63,9 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-foreground mb-4">Our Services</h3>
           <ul className="space-y-2 text-sm">
-            <li>Web Design & Development</li>
-            <li>UI/UX Design</li>
-            <li>E-commerce Solutions</li>
-            <li>Virtual Coaching</li>
-            <li>Bulk SMS Integration</li>
+            {ourServices.map((service) => (
+            <li>{service.title}</li>
+            ))}
           </ul>
         </div>
 
@@ -77,14 +75,14 @@ const Footer = () => {
             <p>123 Design Street, Creative City, CA 90210</p>
             <p>
               Email:{" "}
-              <Link href="mailto:info@designflow.com" className="hover:text-primary transition-colors">
-                info@techwithinnovaton.com
+              <Link href="mailto:techwithinnovation@gmail.com" className="hover:text-primary transition-colors">
+                techwithinnovation@gmail.com
               </Link>
             </p>
             <p>
               Phone:{" "}
-              <Link href="tel:+1234567890" className="hover:text-primary transition-colors">
-                +1 (234) 567-890
+              <Link href="tel:+2348027618122" className="hover:text-primary transition-colors">
+                +234 802 761 8122
               </Link>
             </p>
           </div>

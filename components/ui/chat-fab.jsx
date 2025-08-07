@@ -1,7 +1,5 @@
 "use client";
-
 import React from "react";
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -11,19 +9,20 @@ import {
   SelectContent,
   SelectItem,
   SelectTrigger,
-  SelectValue,
+  SelectValue
 } from "@/components/ui/select";
 import {
   Popover,
   PopoverContent,
-  PopoverTrigger,
+  PopoverTrigger
 } from "@/components/ui/popover";
 import { Send, X } from "lucide-react";
 import {
   IconBrandWhatsapp,
-  IconBrandWhatsappFilled,
+  IconBrandWhatsappFilled
 } from "@tabler/icons-react";
 import { motion } from "framer-motion";
+import { NGN_BUDGETS } from "@/public/data";
 import { currencyOptions } from "@/hooks/currencyMap";
 import { useDetectedCurrency } from "@/hooks/useDetectedCurrency";
 import { useExchangeRates } from "@/hooks/useExchangeRates";
@@ -32,20 +31,13 @@ const popoverVariants = {
   initial: { opacity: 0, scale: 0.8 },
   animate: { opacity: 1, scale: 1 },
   exit: { opacity: 0, scale: 0.8 },
-  transition: { duration: 0.5, ease: "easeInOut" },
+  transition: { duration: 0.5, ease: "easeInOut" }
 };
 
-const USD_BUDGETS = [
-  { min: 5000, max: 10000 },
-  { min: 10000, max: 25000 },
-  { min: 25000, max: 50000 },
-  { min: 50000, max: null },
-];
-
 const ChatFab = () => {
-  const [currency, setCurrency] = useState("USD"); // default fallback
+  const [currency, setCurrency] = useState("NGN");
 
-  const detectedCurrency = useDetectedCurrency(); // call the hook separately
+  const detectedCurrency = useDetectedCurrency();
 
   useEffect(() => {
     if (detectedCurrency && detectedCurrency !== currency) {
@@ -53,28 +45,28 @@ const ChatFab = () => {
     }
   }, [detectedCurrency]);
 
-  const { rates: exchangeRates, loading, error } = useExchangeRates("USD");
+  const { rates: exchangeRates, loading, error } = useExchangeRates("NGN");
 
   const [isOpen, setIsOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     budget: "",
-    description: "",
+    description: ""
   });
 
   const whatsappNumber = "+2348027618122";
 
-  const handleInputChange = (e) => {
+  const handleInputChange = e => {
     const { id, value } = e.target;
-    setFormData((prev) => ({ ...prev, [id]: value }));
+    setFormData(prev => ({ ...prev, [id]: value }));
   };
 
-  const handleSelectChange = (value) => {
-    setFormData((prev) => ({ ...prev, budget: value }));
+  const handleSelectChange = value => {
+    setFormData(prev => ({ ...prev, budget: value }));
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = e => {
     e.preventDefault();
 
     const { name, email, budget, description } = formData;
@@ -90,7 +82,7 @@ const ChatFab = () => {
     setIsOpen(false);
   };
 
-  const roundToNearest = (num) => {
+  const roundToNearest = num => {
     if (num < 100) return Math.round(num / 10) * 10;
     if (num < 1000) return Math.round(num / 100) * 100;
     return Math.round(num / 1000) * 1000;
@@ -98,20 +90,20 @@ const ChatFab = () => {
 
   const convertedBudgets =
     !loading && exchangeRates && exchangeRates[currency]
-      ? USD_BUDGETS.map(({ min, max }) => {
+      ? NGN_BUDGETS.map(({ min, max }) => {
           const rate = exchangeRates[currency];
-          const formatAmount = (n) =>
+          const formatAmount = n =>
             new Intl.NumberFormat("en", {
               style: "currency",
               currency,
-              maximumFractionDigits: 0,
+              maximumFractionDigits: 0
             }).format(roundToNearest(n * rate));
 
           return {
             label: max
               ? `${formatAmount(min)} - ${formatAmount(max)}`
               : `${formatAmount(min)}+`,
-            value: `${min}-${max ?? "plus"}`,
+            value: `${min}-${max ?? "plus"}`
           };
         })
       : [];
@@ -181,7 +173,7 @@ const ChatFab = () => {
             <div className="w-full flex flex-col gap-4">
               <div className="w-full">
                 <Select
-                  onValueChange={(value) => setCurrency(value)}
+                  onValueChange={value => setCurrency(value)}
                   value={currency}
                   key={currency}
                 >
@@ -215,7 +207,7 @@ const ChatFab = () => {
                   </SelectTrigger>
                   <SelectContent>
                     {convertedBudgets.length
-                      ? convertedBudgets.map((range) => (
+                      ? convertedBudgets.map(range => (
                           <SelectItem key={range.value} value={range.value}>
                             {range.label}
                           </SelectItem>

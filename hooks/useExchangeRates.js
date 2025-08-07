@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-export function useExchangeRates(base = "USD") {
+export function useExchangeRates(base = "NGN") {
   const [rates, setRates] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);

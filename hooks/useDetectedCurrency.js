@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { currencyOptions } from "./currencyMap";
 
-export const useDetectedCurrency = (defaultCurrency = "USD") => {
+export const useDetectedCurrency = (defaultCurrency = "NGN") => {
     const [currency, setCurrency] = useState(defaultCurrency);
 
     useEffect(() => {

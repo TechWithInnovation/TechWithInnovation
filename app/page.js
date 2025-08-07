@@ -12,7 +12,7 @@ import Services from "./components/Services";
 import ChatFab from "@/components/ui/chat-fab";
 
 export default function Home() {
-  return (
+  return ( 
     <>
       <Header/>
       <Hero/>

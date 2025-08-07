@@ -15,22 +15,15 @@ import {
     SelectItem,
 } from "@/components/ui/select";
 import { toast } from "sonner";
-
+import { NGN_BUDGETS } from '@/public/data'
 import { useExchangeRates } from "@/hooks/useExchangeRates";
 import { useDetectedCurrency } from "@/hooks/useDetectedCurrency";
 import { currencyOptions } from "@/hooks/currencyMap";
 
-const USD_BUDGETS = [
-    { min: 5000, max: 10000 },
-    { min: 10000, max: 25000 },
-    { min: 25000, max: 50000 },
-    { min: 50000, max: null },
-];
-
 const GetQuoteSection = () => {
-    const [currency, setCurrency] = useState("USD"); // default fallback
+    const [currency, setCurrency] = useState("NGN");
 
-    const detectedCurrency = useDetectedCurrency(); // call the hook separately
+    const detectedCurrency = useDetectedCurrency();
 
     useEffect(() => {
       if (detectedCurrency && detectedCurrency !== currency) {
@@ -38,7 +31,7 @@ const GetQuoteSection = () => {
       }
     }, [detectedCurrency]);
 
-    const { rates: exchangeRates, loading, error } = useExchangeRates("USD");
+    const { rates: exchangeRates, loading, error } = useExchangeRates("NGN");
 
     const [formData, setFormData] = useState({
         name: "",
@@ -69,7 +62,7 @@ const GetQuoteSection = () => {
 
     const convertedBudgets =
         !loading && exchangeRates && exchangeRates[currency]
-            ? USD_BUDGETS.map(({ min, max }) => {
+            ? NGN_BUDGETS.map(({ min, max }) => {
                 const rate = exchangeRates[currency];
                 const formatAmount = (n) =>
                     new Intl.NumberFormat("en", {

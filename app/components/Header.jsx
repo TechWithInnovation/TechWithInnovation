@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger, SheetTitle } from "@/components/ui/sheet"
 import ModeToggle from "./ModeToggle";
 import { navItems, otherNavItems } from "@/public/data";
-import Link from "next/link";
+import Link from "next/link"; 
 import Logo from "@/components/logo";
 
 function Header() {
