@@ -38,43 +38,43 @@ export const otherNavItems = [
 export const brands = [
   {
     id: 1,
-    name: "TechCorp",
+    name: "Shoprite",
     logo: "/images/brands.png"
   },
   {
     id: 2,
-    name: "InnovateLab",
+    name: "InterSwitch",
     logo: "/images/brands1.png"
   },
   {
     id: 3,
-    name: "StartupX",
+    name: "GIG Logistics",
     logo: "/images/brands2.png"
   },
   {
     id: 4,
-    name: "DigitalFlow",
+    name: "Jumia",
     logo: "/images/brands3.png"
   },
   {
     id: 5,
-    name: "CloudSync",
+    name: "MTN",
     logo: "/images/brands4.png"
   },
   {
     id: 6,
-    name: "DataVision",
+    name: "Airtel NG",
     logo: "/images/brands5.png"
   },
   {
     id: 7,
-    name: "WebForce",
-    logo: "/images/brands4.png"
+    name: "PayStack",
+    logo: "/images/brands6.png"
   },
   {
     id: 8,
-    name: "AppMaster",
-    logo: "/images/brands3.png"
+    name: "Moniepoint MFB",
+    logo: "/images/brands7.png"
   }
 ];
 
@@ -309,7 +309,7 @@ export const teamMembers = [
   {
     id: 1,
     name: "AbdulFatah Shokunbi",
-    role: "Founder & CEO | Lead Software Engineer",
+    role: "Founder & CEO | Software Engineer",
     image: "/images/ceo.jpg",
     bio: "Visionary leader with 10+ years in tech innovation. Passionate about transforming businesses through cutting-edge digital solutions.",
     experience: "5",
@@ -337,11 +337,11 @@ export const teamMembers = [
   {
     id: 3,
     name: "Rasaq Sulaimon",
-    role: "Certified Project Manager",
+    role: "Software Specialist and Consultant",
     image: "/images/rasaq.jpg",
     bio: "Backend architecture expert specializing in scalable systems, APIs, and cloud infrastructure. Ensures robust and secure solutions.",
     skills: ["Node.js", "Python", "AWS", "Database Design"],
-    experience: "6",
+    experience: "10",
     social: {
       linkedin: "https://linkedin.com/in/emekanwosu",
       twitter: "https://twitter.com/emekanwosu",
