@@ -27,7 +27,7 @@ const Footer = () => {
               <IconBrandInstagram className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link href="https://twitter.com/techwithinnovation" target='_blank' className="hover:text-primary transition-colors">
+            <Link href="https://x.com/Techwithinno" target='_blank' className="hover:text-primary transition-colors">
               <IconBrandTwitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
