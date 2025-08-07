@@ -22,6 +22,7 @@ import { currencyOptions } from "@/hooks/currencyMap";
 
 const GetQuoteSection = () => {
     const [currency, setCurrency] = useState("NGN");
+    const [count, setCount] = useState(0);
 
     const detectedCurrency = useDetectedCurrency();
 
@@ -40,7 +41,7 @@ const GetQuoteSection = () => {
         message: "",
     });
 
-    const [state, handleSubmit] = useForm("xblklgzk");
+    const [state, handleSubmit] = useForm("xnnzqqrd");
 
     React.useEffect(() => {
         if (state.succeeded) {
@@ -164,7 +165,7 @@ const GetQuoteSection = () => {
                                                 value={currency}
                                             >
                                                 <SelectTrigger>
-                                                    <SelectValue placeholder="Select currency" />
+                                                    <SelectValue placeholder="Currency" />
                                                 </SelectTrigger>
                                                 <SelectContent>
                                                     {Object.entries(currencyOptions).map(
@@ -191,7 +192,7 @@ const GetQuoteSection = () => {
                                                 className="w-full"
                                                 disabled={loading || error}
                                             >
-                                                <SelectTrigger className="w-full">
+                                                <SelectTrigger className="w-35 lg:w-full">
                                                     <SelectValue placeholder="Select your budget range" />
                                                 </SelectTrigger>
                                                 <SelectContent>
@@ -210,9 +211,10 @@ const GetQuoteSection = () => {
                                                                 No budget options available
                                                             </SelectItem>
                                                         )}
-                                                    {loading && (
-                                                        <SelectItem disabled>Loading budgets...</SelectItem>
-                                                    )}
+                                                    {/* {loading && (
+                                                             <SelectItem key={"loading"} disabled>Loading budgets...</SelectItem>                                                       
+                                                       
+                                                    )} */}
                                                     {error && (
                                                         <SelectItem disabled>
                                                             Error loading exchange rates

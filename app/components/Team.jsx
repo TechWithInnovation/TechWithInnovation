@@ -86,6 +86,9 @@ const Team = () => {
                   <p className="text-muted-foreground text-xs md:text-sm mb-4">
                     {member.experience} years experience
                   </p>
+                       <p className="text-muted-foreground text-xs md:text-sm mb-4">
+                    {member.bio}
+                  </p>
  
                   <div className="flex justify-center space-x-2">
                     {Object.entries(member.social).map(([platform, url]) => (

@@ -19,19 +19,19 @@ const Footer = () => {
 
           <p className="text-sm">Crafting stunning digital experiences that drive results.</p>
           <div className="flex space-x-4">
-            <Link href="#" className="hover:text-primary transition-colors">
+            <Link href="https://www.facebook.com/share/1DshNrgmHF/" target='_blank' className="hover:text-primary transition-colors">
               <IconBrandFacebook className="h-5 w-5" />
               <span className="sr-only">Facebook</span>
             </Link>
-            <Link href="https://www.instagram.com/tech_withinnovation" className="hover:text-primary transition-colors">
+            <Link href="https://www.instagram.com/tech_withinnovation" target='_blank' className="hover:text-primary transition-colors">
               <IconBrandInstagram className="h-5 w-5" />
               <span className="sr-only">Instagram</span>
             </Link>
-            <Link href="https://twitter.com/techwithinnovation" className="hover:text-primary transition-colors">
+            <Link href="https://twitter.com/techwithinnovation" target='_blank' className="hover:text-primary transition-colors">
               <IconBrandTwitter className="h-5 w-5" />
               <span className="sr-only">Twitter</span>
             </Link>
-            <Link href="https://www.linkedin.com/company/techwithinnovation" className="hover:text-primary transition-colors">
+            <Link href="https://www.linkedin.com/company/tech-with-innovation/" target='_blank' className="hover:text-primary transition-colors">
               <IconBrandLinkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </Link>
@@ -64,7 +64,7 @@ const Footer = () => {
           <h3 className="text-lg font-semibold text-foreground mb-4">Our Services</h3>
           <ul className="space-y-2 text-sm">
             {ourServices.map((service) => (
-            <li>{service.title}</li>
+            <li key={service.id}>{service.title}</li>
             ))}
           </ul>
         </div>

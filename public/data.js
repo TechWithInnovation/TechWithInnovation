@@ -53,8 +53,8 @@ export const brands = [
   },
   {
     id: 4,
-    name: "DigitalFlow",
-    logo: "/images/brands3.png"
+    name: "VAS2Nets",
+    logo: "/images/VAS2Nets.png"
   },
   {
     id: 5,
@@ -69,7 +69,7 @@ export const brands = [
   {
     id: 7,
     name: "WebForce",
-    logo: "/images/brands4.png"
+    logo: "/images/digitalLearns.png"
   },
   {
     id: 8,
@@ -280,24 +280,28 @@ export const faqs = [
 
 export const ourServices = [
   {
+    id : 1,
     icon: <IconWorldCode className="h-8 w-8" />,
     title: "Web Design & Development",
     description:
       "Modern, high-performance websites tailored to your business needs"
   },
   {
+     id : 2,
     icon: <IconPalette className="h-8 w-8" />,
     title: "UI/UX Design",
     description:
       "User-centric interfaces that are both functional and beautiful"
   },
   {
+     id : 3,
     icon: <IconMessages className="h-8 w-8" />,
     title: "Bulk SMS Integration",
     description:
       "Seamless B2B & B2C messaging solutions for real-time engagement"
   },
   {
+     id : 4,
     icon: <IconShoppingCart className="h-8 w-8" />,
     title: "E-commerce Solutions",
     description:
@@ -309,21 +313,21 @@ export const teamMembers = [
   {
     id: 1,
     name: "AbdulFatah Shokunbi",
-    role: "Founder & CEO | Lead Software Engineer",
+    role: "Founder & CEO | Software Engineer",
     image: "/images/ceo.jpg",
-    bio: "Visionary leader with 10+ years in tech innovation. Passionate about transforming businesses through cutting-edge digital solutions.",
-    experience: "5",
+    bio: "Visionary leader with 6+ years in tech innovation. Passionate about transforming businesses through cutting-edge digital solutions.",
+    experience: "6",
     skills: ["Strategic Planning", "Business Development", "Team Leadership"],
     social: {
-      linkedin: "https://linkedin.com/in/chineduokafor",
-      twitter: "https://twitter.com/chineduokafor",
-      github: "https://github.com/chineduokafor"
+      linkedin: "https://linkedin.com/in/shokunbiaa",
+      twitter: "https://x.com/habheeodunshow?t=6pzXn9Dr791dORWCxmOX6g&s=09",
+      github: "https://github.com/ShokunbiAyodele"
     }
   },
   {
     id: 2,
     name: "Ayatullah Khalid",
-    role: "Lead Frontend Developer",
+    role: "Lead | Full Stack Developer",
     image: "/images/avatar1.png",
     bio: "Frontend specialist with expertise in React, Next.js, and modern web technologies. Creates beautiful, performant user experiences.",
     skills: ["React", "Next.js", "TypeScript", "UI/UX Design"],
@@ -337,11 +341,11 @@ export const teamMembers = [
   {
     id: 3,
     name: "Rasaq Sulaimon",
-    role: "Certified Project Manager",
+    role: "Software Specialist & Ext. Consultant",
     image: "/images/rasaq.jpg",
     bio: "Backend architecture expert specializing in scalable systems, APIs, and cloud infrastructure. Ensures robust and secure solutions.",
     skills: ["Node.js", "Python", "AWS", "Database Design"],
-    experience: "6",
+    experience: "10+",
     social: {
       linkedin: "https://linkedin.com/in/emekanwosu",
       twitter: "https://twitter.com/emekanwosu",
@@ -364,8 +368,8 @@ export const teamMembers = [
 ];
 
 export const NGN_BUDGETS = [
-  { min: 500000, max: 1000000 },
-  { min: 1000001, max: 5000000 },
-  { min: 5000001, max: 10000001 },
-  { min: 10000001, max: null }
+  { min: 1000000, max: 5000000 },
+  { min: 6000000, max: 10000000 },
+  { min: 11000000, max: 15000000 },
+  { min: 15000000, max: null }
 ];

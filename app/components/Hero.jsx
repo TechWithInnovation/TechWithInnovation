@@ -73,10 +73,10 @@ const Hero = () => {
           transition={{ delay: 0.8, duration: 0.5 }}
         >
           {[
-            { icon: IconBrandFacebook, href: "https://facebook.com", label: "Facebook" },
-            { icon: IconBrandLinkedin, href: "https://linkedin.com", label: "LinkedIn" },
-            { icon: IconBrandTwitter, href: "https://twitter.com", label: "Twitter" },
-            { icon: IconMail, href: "mailto:hello@example.com", label: "Email" },
+            { icon: IconBrandFacebook, href: "https://www.facebook.com/share/1DshNrgmHF/", label: "Facebook" },
+            { icon: IconBrandLinkedin, href: "https://www.linkedin.com/company/tech-with-innovation/", label: "LinkedIn" },
+            { icon: IconBrandTwitter, href: "https://twitter.com/techwithinnovation", label: "Twitter" },
+            { icon: IconMail, href: "mailto:info@techwithinnovation.com", label: "Email" },
           ].map(({ icon: Icon, href, label }) => (
             <Link href={href} key={label} target="_blank">
               <Button
