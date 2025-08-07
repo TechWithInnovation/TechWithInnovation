@@ -157,7 +157,7 @@ const GetQuoteSection = () => {
                                     >
                                         Budget
                                     </label>
-                                    <div className="flex flex-cols-1 md:flex-cols-2 gap-6">
+                                    <div className="flex sm:flex-rows gap-6 sm:gap-4">
                                         <div>
                                             <Select
                                                 onValueChange={(value) => setCurrency(value)}
