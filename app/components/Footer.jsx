@@ -9,7 +9,6 @@ import {
 } from "@tabler/icons-react"
 import { navItems, otherNavItems, ourServices } from '@/public/data'
 import Logo from '@/components/logo'
-
 const Footer = () => {
   return (
     <footer className="bg-background text-muted-foreground py-12 md:py-16">
@@ -93,8 +92,8 @@ const Footer = () => {
         <p>
           &copy; {new Date().getFullYear()}{" "}
           <span className="font-mono">
-            tech<span className="text-sky-500">with</span>Innovation
-          </span>
+            tech <span className="text-sky-500">with </span>innovation
+           <span className='text-sky-500'> technologies</span> limited</span>
           . All rights reserved.
         </p>
         <div className="flex justify-center space-x-4 mt-2">
