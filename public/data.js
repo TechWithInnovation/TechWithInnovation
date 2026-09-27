@@ -339,7 +339,7 @@ export const teamMembers = [
     id: 2,
     name: "Ayatullah Khalid",
     role: "Lead | Full Stack Developer",
-    image: "/images/avatar1.png",
+    image: "/images/avatar9.jpeg",
     bio: "Frontend specialist with expertise in React, Next.js, and modern web technologies. Creates beautiful, performant user experiences.",
     skills: ["React", "Next.js", "TypeScript", "UI/UX Design"],
     experience: "4",
